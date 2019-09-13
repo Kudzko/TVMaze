@@ -10,7 +10,6 @@ import java.util.List;
 import by.kudko.testtask.model.TVShow;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 public class TvMazeAPIengine {
     public final static String URL_SEARCH = "http://api.tvmaze.com/search/shows?q=";
@@ -39,15 +38,9 @@ public class TvMazeAPIengine {
     public static List<TVShow> search(String input) throws IOException,
             JSONException {
         String searchRequest = URL_SEARCH + input;
-        System.out.println(searchRequest);
+
         String result = "no result";
         JSONArray jsonArray = readJsonFromUrl(searchRequest);
-
-//        result = json.toString();
-//        System.out.println(json.toString());
-//        System.out.println();
-//        System.out.println();
-//        System.out.println(json.keys());
         return toJavaObjects(jsonArray);
 
     }
